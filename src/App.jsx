@@ -128,7 +128,7 @@ const [cart, setCart] = useState(() => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products");
+       const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
         setProducts(response.data);
       } catch (error) {
         console.error("Failed to fetch products:", error);
@@ -244,7 +244,7 @@ useEffect(() => {
     setOrderMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/orders", {
+      const response = await axios.post("${import.meta.env.VITE_API_URL}/api/orders", {
         ...customer,
 
         items: cart.map((item) => ({

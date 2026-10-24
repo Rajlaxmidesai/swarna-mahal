@@ -19,7 +19,7 @@ function AdminDashboard() {
 
   async function fetchProducts() {
     try {
-      const response = await axios.get("http://localhost:5000/api/products");
+      const response = await axios.get("${import.meta.env.VITE_API_URL}/api/products");
       const data = response.data;
       setProducts(Array.isArray(data) ? data : data.products || []);
     } catch (error) {
@@ -50,7 +50,7 @@ function AdminDashboard() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/products",
+        "${import.meta.env.VITE_API_URL}/api/products",
         {
           ...form,
           price: Number(form.price),
@@ -128,7 +128,7 @@ async function handleEditProduct(product) {
     const token = localStorage.getItem('token')
 
     await axios.put(
-      `http://localhost:5000/api/products/${product._id}`,
+      `${import.meta.env.VITE_API_URL}/api/products/${product._id}`,
       {
         name: name.trim(),
         category: category.trim(),
@@ -323,7 +323,7 @@ async function handleEditProduct(product) {
                         const token = localStorage.getItem("token");
 
                         await axios.delete(
-                          `http://localhost:5000/api/products/${product._id}`,
+                          `${import.meta.env.VITE_API_URL}/api/products/${product._id}`,
                           {
                             headers: {
                               Authorization: `Bearer ${token}`,
