@@ -28,4 +28,5 @@ Swarna Mahal is a full-stack jewellery e-commerce web application offering an el
 
 •	Authentication: JWT
 
-Tools: Git, GitHub, Render
+Tools: Git, GitHub
+
